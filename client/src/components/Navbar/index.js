@@ -6,7 +6,7 @@ function Navbar() {
   return (
     <nav className={styles.nav}>
         <div className={styles.left}>
-            <div className='logo'>
+            <div className={styles.logo}>
                 <Link to="/">My Store</Link>
             </div>
             <ul className={styles.menu}>
@@ -17,10 +17,10 @@ function Navbar() {
         </div>
         <div className={styles.right}>
         <Link to="/signin">
-            <Button colorScheme='pink'>Register</Button>
+            <Button colorScheme='pink'>Login</Button>
         </Link>
         <Link to="/signup">
-            <Button colorScheme='pink'>Log in</Button>
+            <Button colorScheme='pink'>Register</Button>
         </Link>
         </div>
     </nav>
