@@ -5,7 +5,9 @@ import App from './App';
 import {BrowserRouter} from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+
+import {AuthProvider} from './context/AuthContext';
 
 
 const queryClient = new QueryClient({
@@ -24,7 +26,9 @@ root.render(
     <QueryClientProvider client={queryClient}>
       <ChakraProvider>
         <BrowserRouter>
-          <App />
+          <AuthProvider>
+            <App />
+          </AuthProvider>
         </BrowserRouter>
       </ChakraProvider>
       <ReactQueryDevtools initialIsOpen={false} />
