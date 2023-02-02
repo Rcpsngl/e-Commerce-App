@@ -8,6 +8,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
 import {AuthProvider} from './context/AuthContext';
+import {BasketProvider} from './context/BasketContext';
 
 
 const queryClient = new QueryClient({
@@ -27,7 +28,9 @@ root.render(
       <ChakraProvider>
         <BrowserRouter>
           <AuthProvider>
-            <App />
+            <BasketProvider>
+              <App />
+            </BasketProvider>
           </AuthProvider>
         </BrowserRouter>
       </ChakraProvider>
