@@ -5,6 +5,7 @@ import {Text, Button, Box} from '@chakra-ui/react';
 import moment from 'moment';
 import ImageGallery from 'react-image-gallery';
 import { useBasket } from '../../context/BasketContext';
+import styles from './styles.module.css';
 
 function ProdutDetail() {
     const { product_id } = useParams();
@@ -24,22 +25,24 @@ function ProdutDetail() {
 
   return (
     <div>
-		<Button colorScheme='pink' onClick={() => addToBasket(data,findBasketItem)}>
-			{
-				findBasketItem ? 'Remove from basket' : 'Add to basket'
-			}
-			</Button>
+		
 
 		<Text as='h2' fontSize='2xl'>
 			{data.title}	
 		</Text>	
 		<Text>{moment(data.createdAt).format('DD/MM/YYYY')}</Text>
-		<p>{data.description}</p>
-		<Box margin={"10"}>
-				<ImageGallery
+		
+		<Box margin={"10"} >
+				<ImageGallery additionalClass={styles.image} 
 					items={images}
 				/>
 			</Box>
+			<p>{data.description}</p>
+			<Button colorScheme='pink' mt='2' onClick={() => addToBasket(data,findBasketItem)}>
+			{
+				findBasketItem ? 'Remove from basket' : 'Add to basket'
+			}
+			</Button>
 	</div>
   )
 }
